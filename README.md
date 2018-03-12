@@ -21,6 +21,22 @@ public class MainActivity extends TutorialActivity {
                         .url(images) // List of Uri, file or String url
                         .placeHolder(R.drawable.ic_launcher_background) // placeHolder for images
                         .position(2)
+			.pageChangeListener(new ViewPager.OnPageChangeListener() {
+                            @Override
+                            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                            }
+
+                            @Override
+                            public void onPageSelected(int position) {
+                                Toast.makeText(MainActivity.this, "Page Selected : " + position, Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onPageScrollStateChanged(int state) {
+
+                            }
+                        })
                         .build()
                         .show();
 
