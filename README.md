@@ -11,12 +11,6 @@ Ready to use photo viewer screen.
 
 ```java
 
-public class MainActivity extends TutorialActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         new PhotoViewer.Builder(MainActivity.this)
                         .url(images) // List of Uri, file or String url
                         .placeHolder(R.drawable.ic_launcher_background) // placeHolder for images
