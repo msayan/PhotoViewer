@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
 
@@ -23,6 +24,7 @@ public class PhotoViewer {
         view.setFile(builder.file);
         view.setUrl(builder.url);
         view.setPosition(builder.position);
+        view.setOnPageChangeListener(builder.pageListener);
         if (builder.placeHolder > -1)
             view.setPlaceHolder(builder.placeHolder);
     }
@@ -57,6 +59,7 @@ public class PhotoViewer {
         private Context context;
         private int placeHolder = -1;
         private int position = 0;
+        private ViewPager.OnPageChangeListener pageListener;
 
         public Builder(@NonNull Context context) {
             this.context = context;
@@ -81,6 +84,17 @@ public class PhotoViewer {
          */
         public Builder placeHolder(int val) {
             placeHolder = val;
+            return this;
+        }
+
+        /**
+         * Sets the {@code pageListener} and returns a reference to this Builder so that the methods can be chained together.
+         *
+         * @param val the {@code pageListener} to set
+         * @return a reference to this Builder
+         */
+        public Builder pageChangeListener(ViewPager.OnPageChangeListener val) {
+            pageListener = val;
             return this;
         }
 

@@ -1,8 +1,10 @@
 package com.hololo.app.sample;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.hololo.library.photoviewer.PhotoViewer;
 
@@ -30,6 +32,22 @@ public class MainActivity extends AppCompatActivity {
                         .url(images)
                         .placeHolder(R.drawable.ic_launcher_background)
                         .position(2)
+                        .pageChangeListener(new ViewPager.OnPageChangeListener() {
+                            @Override
+                            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                            }
+
+                            @Override
+                            public void onPageSelected(int position) {
+                                Toast.makeText(MainActivity.this, "Page Selected : " + position, Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onPageScrollStateChanged(int state) {
+
+                            }
+                        })
                         .build()
                         .show();
             }
