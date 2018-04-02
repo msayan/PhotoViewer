@@ -38,11 +38,11 @@ public class ImagePagerAdapter<T> extends PagerAdapter {
         container.addView(view);
 
         if (item instanceof Uri) {
-            getPicasso(container.getContext()).load((Uri) item).placeholder(placeHolder).error(placeHolder).into(imageViewer);
+            getPicasso(container.getContext()).load((Uri) item).fit().centerInside().placeholder(placeHolder).error(placeHolder).into(imageViewer);
         } else if (item instanceof File) {
-            getPicasso(container.getContext()).load((File) item).placeholder(placeHolder).error(placeHolder).into(imageViewer);
+            getPicasso(container.getContext()).load((File) item).fit().centerInside().placeholder(placeHolder).error(placeHolder).into(imageViewer);
         } else if (item instanceof String) {
-            getPicasso(container.getContext()).load((String) item).placeholder(placeHolder).error(placeHolder).into(imageViewer);
+            getPicasso(container.getContext()).load((String) item).fit().centerInside().placeholder(placeHolder).error(placeHolder).into(imageViewer);
         }
 
 
